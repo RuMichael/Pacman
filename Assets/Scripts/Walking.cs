@@ -5,11 +5,13 @@ using UnityEngine;
 public class Walking : MonoBehaviour
 {
 
-    Vector3 _V3Left = new Vector3(-0.2f, 0, 0);
-    Vector3 _V3Right = new Vector3(0.2f, 0, 0);
-    Vector3 _V3Up = new Vector3(0, 0.2f, 0);
-    Vector3 _V3Down = new Vector3(0, -0.2f, 0);
+    Vector2 _V3Left = new Vector2(-0.2f, 0);
+    Vector2 _V3Right = new Vector2(0.2f, 0);
+    Vector2 _V3Up = new Vector2(0, 0.2f);
+    Vector2 _V3Down = new Vector2(0, -0.2f);
 
+    
+    public CharacterController _characterController;
     Transform _lastPosition;
     WalkingDirection _direction;
     void Start()
@@ -38,10 +40,10 @@ public class Walking : MonoBehaviour
         }
     }
 
-    public void WalkingLeft() => transform.localPosition += _V3Left;
-    public void WalkingRight() => transform.localPosition += _V3Right;
-    public void WalkingUp() => transform.localPosition += _V3Up;
-    public void WalkingDown() => transform.localPosition += _V3Down;
+    public void WalkingLeft() => _characterController.Move(_V3Left);
+    public void WalkingRight() => _characterController.Move(_V3Right);
+    public void WalkingUp() => _characterController.Move(_V3Up);
+    public void WalkingDown() => _characterController.Move(_V3Down); 
 
     public enum WalkingDirection
     {
