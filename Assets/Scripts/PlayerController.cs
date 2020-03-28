@@ -19,13 +19,17 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(_control[Walking.WalkingDirection.right]))
-            _walking.WalkingRight();
-        else if (Input.GetKeyDown(_control[Walking.WalkingDirection.left]))
-            _walking.WalkingLeft();
-        else if (Input.GetKeyDown(_control[Walking.WalkingDirection.up]))
-            _walking.WalkingUp();
-        else if (Input.GetKeyDown(_control[Walking.WalkingDirection.down]))
-            _walking.WalkingDown();
+        if (Input.GetKeyDown(_control[Walking.WalkingDirection.right])  || Input.GetKey(_control[Walking.WalkingDirection.right]))
+            _walking.Move(Walking.WalkingDirection.right);
+            //_walking.Walk(Walking.WalkingDirection.right);
+        else if (Input.GetKeyDown(_control[Walking.WalkingDirection.left]) || Input.GetKey(_control[Walking.WalkingDirection.left])) 
+            _walking.Move(Walking.WalkingDirection.left);       
+            //_walking.Walk(Walking.WalkingDirection.left);        
+        else if (Input.GetKeyDown(_control[Walking.WalkingDirection.up]) || Input.GetKey(_control[Walking.WalkingDirection.up]))
+            _walking.Move(Walking.WalkingDirection.up);
+            //_walking.Walk(Walking.WalkingDirection.up);
+        else if (Input.GetKeyDown(_control[Walking.WalkingDirection.down]) || Input.GetKey(_control[Walking.WalkingDirection.down]))
+            _walking.Move(Walking.WalkingDirection.down);
+            //_walking.Walk(Walking.WalkingDirection.down);
     }
 }
