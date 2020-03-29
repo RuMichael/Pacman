@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Walking _walking;
-    public Dictionary <Walking.WalkingDirection,KeyCode> _control;
+    [SerializeField]
+    Walking _walking;
+    Dictionary <Walking.WalkingDirection,KeyCode> _control;
     void Start()
     {
         _control = new Dictionary<Walking.WalkingDirection, KeyCode>{       //андрей, это временный код, написал для теста\ примера, это управление ты должен мне 
@@ -15,21 +16,15 @@ public class PlayerController : MonoBehaviour
             {Walking.WalkingDirection.down, KeyCode.S},
         };
     }
-
-
     void Update()
     {
         if (Input.GetKeyDown(_control[Walking.WalkingDirection.right])  || Input.GetKey(_control[Walking.WalkingDirection.right]))
             _walking.Move(Walking.WalkingDirection.right);
-            //_walking.Walk(Walking.WalkingDirection.right);
         else if (Input.GetKeyDown(_control[Walking.WalkingDirection.left]) || Input.GetKey(_control[Walking.WalkingDirection.left])) 
-            _walking.Move(Walking.WalkingDirection.left);       
-            //_walking.Walk(Walking.WalkingDirection.left);        
+            _walking.Move(Walking.WalkingDirection.left);           
         else if (Input.GetKeyDown(_control[Walking.WalkingDirection.up]) || Input.GetKey(_control[Walking.WalkingDirection.up]))
             _walking.Move(Walking.WalkingDirection.up);
-            //_walking.Walk(Walking.WalkingDirection.up);
         else if (Input.GetKeyDown(_control[Walking.WalkingDirection.down]) || Input.GetKey(_control[Walking.WalkingDirection.down]))
             _walking.Move(Walking.WalkingDirection.down);
-            //_walking.Walk(Walking.WalkingDirection.down);
     }
 }
