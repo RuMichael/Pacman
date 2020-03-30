@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    Walking _walking;
-    Dictionary <Walking.WalkingDirection,KeyCode> _control;
+    Walking _walking;                               //ссылка на клас управляющий движением пакмана
+    Dictionary <Walking.WalkingDirection,KeyCode> _control; //хранилище кнопок управления
     void Start()
     {
         _control = new Dictionary<Walking.WalkingDirection, KeyCode>{       //андрей, это временный код, написал для теста\ примера, это управление ты должен мне 
@@ -16,15 +16,15 @@ public class PlayerController : MonoBehaviour
             {Walking.WalkingDirection.down, KeyCode.S},
         };
     }
-    void Update()
+    void Update()       //обработка нажатия клавишь с клавы
     {
-        if (Input.GetKeyDown(_control[Walking.WalkingDirection.right])  || Input.GetKey(_control[Walking.WalkingDirection.right]))
+        if (Input.GetKeyDown(_control[Walking.WalkingDirection.right]))  //|| Input.GetKey(_control[Walking.WalkingDirection.right]))
             _walking.Move(Walking.WalkingDirection.right);
-        else if (Input.GetKeyDown(_control[Walking.WalkingDirection.left]) || Input.GetKey(_control[Walking.WalkingDirection.left])) 
+        else if (Input.GetKeyDown(_control[Walking.WalkingDirection.left])) //|| Input.GetKey(_control[Walking.WalkingDirection.left])) 
             _walking.Move(Walking.WalkingDirection.left);           
-        else if (Input.GetKeyDown(_control[Walking.WalkingDirection.up]) || Input.GetKey(_control[Walking.WalkingDirection.up]))
+        else if (Input.GetKeyDown(_control[Walking.WalkingDirection.up])) //|| Input.GetKey(_control[Walking.WalkingDirection.up]))
             _walking.Move(Walking.WalkingDirection.up);
-        else if (Input.GetKeyDown(_control[Walking.WalkingDirection.down]) || Input.GetKey(_control[Walking.WalkingDirection.down]))
+        else if (Input.GetKeyDown(_control[Walking.WalkingDirection.down])) //|| Input.GetKey(_control[Walking.WalkingDirection.down]))
             _walking.Move(Walking.WalkingDirection.down);
     }
 }

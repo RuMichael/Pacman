@@ -1474,7 +1474,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidBody2D: {fileID: 1823390182}
-  fallspeed: 1.2
+  fallspeed: 0.02
+  changePos: 0.15
 --- !u!61 &1823390179
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1499,7 +1500,7 @@ BoxCollider2D:
     adaptiveTiling: 1
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.7}
+  m_Size: {x: 0.85, y: 0.85}
   m_EdgeRadius: 0
 --- !u!50 &1823390182
 Rigidbody2D:
